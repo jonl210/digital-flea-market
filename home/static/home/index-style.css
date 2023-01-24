@@ -1,0 +1,36 @@
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav h1 {
+  font-family: "Nunito", sans-serif;
+}
+
+nav ul {
+  display: inline-flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 2rem;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+}
+
+nav ul li a {
+  color: #333;
+}
+
+.login-btn {
+  color: #fff;
+  background-color: cornflowerblue;
+  padding: 0.5rem 0.6rem 0.5rem 0.6rem;
+  border-radius: 0.4rem;
+  font-weight: bold;
+}
