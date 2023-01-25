@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Joe's • Log in</title>
+    <link rel="stylesheet" href="{% static 'home/login-style.css' %}" />
+  </head>
+  <body>
+    {% include "home/navbar.html" %}
+    <main>
+      <h1>Log in</h1>
+      <form>
+        <input class="login-input" type="text" placeholder="Username" />
+        <input class="login-input" type="password" placeholder="Password" />
+        <button type="submit">Log in</button>
+      </form>
+      <p>Need an account? <a href="#">Sign up</a></p>
+    </main>
+  </body>
+</html>
