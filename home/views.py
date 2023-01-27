@@ -5,3 +5,6 @@ def index(request):
 
 def login_page(request):
     return render(request, "home/login.html")
+    
+def signup_page(request):
+    return render(request, "home/signup.html")
