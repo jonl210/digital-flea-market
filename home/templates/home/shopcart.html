@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Joe's • Cart</title>
+    <link rel="stylesheet" href="{% static 'home/login-style.css' %}" />
+  </head>
+  <body>
+    {% include "home/navbar.html" %}
+    <main>
+        <h1>Your cart is empty</h1>
+      <form>
+        <button type="submit">Keep shopping</button>
+      </form>
+    </main>
+  </body>
+</html>
