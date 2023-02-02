@@ -11,3 +11,6 @@ def signup_page(request):
     
 def shopcart_page(request):
     return render(request, "home/shopcart.html")
+
+def admin_login(request):
+    return render(request, "home/admin-login.html")

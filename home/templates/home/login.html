@@ -2,36 +2,22 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Joe's • Log in</title>
-    <link rel="stylesheet" href="{% static 'home/login-style.css' %}" />
-  </head>
-  <body>
-    {% include "home/navbar.html" %}
-    <main>
-        <div id="content">
-        
-
-        
-        </div>
-
-          
-          <script>
-              document.getElementById("content").innerHTML = '<h1>Log in as:</h1><form onsubmit="showLogin()"><label><input class="login-input" type="radio" name="cust_admin" value="customer"/>Customer</label><label><input class="login-input" type="radio" name="cust_admin" value="administrator"/>Administrator</label><button type="submit" >Next</button></form>';
-              
-              function showLogin(){
-                  which_login = document.forms[0];
-                  if (which_login[1].checked){
-                      document.getElementById("content").innerHTML = '<h1>Admin Log in</h1><form><input class="login-input" type="text" placeholder="Username" /><input class="login-input" type="password" placeholder="Password" /><button type="submit" >Next</button></form>';
-                  } else if (which_login[0].checked) {
-                      document.getElementById("content").innerHTML = '<h1>Customer Log in</h1><form><input class="login-input" type="text" placeholder="Username" /><input class="login-input" type="password" placeholder="Password" /><button type="submit" >Log in</button></form>';
-                  } else {
-                      document.getElementById("content").innerHTML = '<h1>Log in as:</h1><form onsubmit="showLogin()"><label><input class="login-input" type="radio" name="cust_admin" value="customer"/>Customer</label><label><input class="login-input" type="radio" name="cust_admin" value="administrator"/>Administrator</label><button type="submit" >Log in</button></form>';
-                  }
-              }
-        </script>
-
-      <p>Need an account? <a href="{% url 'home:signup' %}">Sign up</a></p>
-    </main>
-  </body>
+<head>
+  <title>Joe's • Log in</title>
+  <link rel="stylesheet" href="{% static 'home/login-style.css' %}" />
+</head>
+<body>
+  {% include "home/navbar.html" %}
+  <main>
+    <h1>Customer Log In</h1>
+    <form action="#" method="post">
+      {% csrf_token %}
+      <input class="signup-input" type="text" placeholder="Username" />
+      <input class="signup-input" type="password" placeholder="Password" />
+      <button type="submit">Log in</button>
+    </form>
+    <p>Need an account? <a href="{% url 'home:signup' %}">Sign up</a></p>
+    <p>Employee or Admin? <a href="{% url 'home:admin-login' %}">Log in here</a></p>
+  </main>
+</body>
 </html>

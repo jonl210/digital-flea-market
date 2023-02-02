@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joe's • Log in (Admin)</title>
+    <link rel="stylesheet" href="{% static 'home/login-style.css' %}" />
+</head>
+<body>
+    {% include "home/navbar.html" %}
+    <main>
+        <h1>Employee and Admin Log In</h1>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <input class="signup-input" type="text" placeholder="Username" />
+            <input class="signup-input" type="password" placeholder="Password" />
+            <button type="submit">Log in</button>
+        </form>
+    </main>
+</body>
+</html>
