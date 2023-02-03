@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Joe's • Log in</title>
+  <link rel="stylesheet" href="{% static 'home/project_stylesheet.css' %}" />
+  <link rel="stylesheet" href="{% static 'home/newitem-style.css' %}" />
+
+</head>
+
+<body>
+  {% include "home/navbar.html" %}
+  <div class="container">
+    <h1>New Item</h1>
+    <div class="content">
+      <form action="#">
+        <div>
+          <div class="row">
+            <div class="column">
+              <span class="label">Item ID</span>
+              <input type="text" required>
+            </div>
+            <div class="column">
+              <span class="label">Item Category ID</span>
+              <input type="text" required>
+            </div>
+          </div>
+          <!--  -->
+          <div class="row">
+            <div class="column">
+              <span class="label">Brand ID</span>
+              <input type="text" required>
+            </div>
+            <div class="column">
+              <span class="label">Supplier ID</span>
+              <input type="text" required>
+            </div>
+          </div>
+          <!--  -->
+          <div class="row">
+            <div class="column">
+              <span class="label">Item Name</span>
+              <input type="text" required>
+            </div>
+            <div class="column">
+              <span class="label">Total on Hand</span>
+              <input type="text" required>
+            </div>
+          </div>
+          <!--  -->
+          <div class="row">
+            <div class="column">
+              <span class="label">Item Price</span>
+              <input type="text" required>
+            </div>
+            <div class="column">
+              <span class="label">Re-order Min</span>
+              <input type="text" required>
+            </div>
+            <div class="column">
+              <span class="label">Max</span>
+              <input type="text" required>
+            </div>
+          </div>
+          <!--  -->
+          <div class="row">
+            <div class="column">
+              <span class="label">Item Description</span>
+              <textarea id="item-description"></textarea>
+            </div>
+          </div>
+          <!--  -->
+          <div class="row">
+            <div class="column">
+              <button class="btn" type="reset">Clear</button>
+            </div>
+            <div class="column">
+              <button class="btn" type="submit">Submit</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

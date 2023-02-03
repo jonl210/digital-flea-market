@@ -14,3 +14,6 @@ def shopcart_page(request):
 
 def admin_login(request):
     return render(request, "home/admin-login.html")
+
+def newitem(request):
+    return render(request, "home/newitem.html")
