@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item Description Page</title>
+    <link rel="stylesheet" href="{% static 'home/imagepage-style.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/navbar-style.css' %}" />
+  </head>
+  <body>
+    {% include "home/navbar.html" %}
+        <main>
+      <img src="{{ item.image_url }}" alt="{{ item.name }}" />
+      <h1>{{ item.name }}</h1>
+      <p>{{ item.description }}</p>
+      <h2>Price: ${{ item.price }}</h2>
+      <p>Quantity: {{ item.quantity }}</p>
+    </main>
+  </body>
+</html>
+
