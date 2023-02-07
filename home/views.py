@@ -22,19 +22,20 @@ def newitem(request):
 
 def addNewItem(request):
     if request.method=="POST":
-        # Verify there are values for all inputs in the request
+        # Verify there are inputs for all expected fields in the form
         if request.POST.get("itemID") and request.POST.get("itemCatID") and request.POST.get("brandID") and request.POST.get("supplierID") \
             and request.POST.get("itemName") and request.POST.get("totalOnHand") and request.POST.get("itemPrice") and request.POST.get("reorderMin") \
             and request.POST.get("max") and request.POST.get("itemDescription"):
 
             # Creates item on home_itemsupplier table
+            # Hard coded values because there are no inputs for these fields in the form yet
             supplier = ItemSupplier(SupplierName="Test Name Here", ValueSuppliedToDate=0.0, FirstItemDate=datetime.datetime.now(), LastItemDate=datetime.datetime.now()) 
             supplier.save()
 
             # Creates item on home_items table
-            post = Items(ItemSupplierID=supplier, ItemDiscription=request.POST.get("itemDescription"), \
+            newItem = Items(ItemSupplierID=supplier, ItemDiscription=request.POST.get("itemDescription"), \
                 ItemName=request.POST.get("itemName"), ItemMarkup=0, SalePrice = request.POST.get("itemPrice"), PriceToOrder=0, InStock=True)
-            post.save()
+            newItem.save()
 
             # Render newitem page
             return render(request, "home/newitem.html")
