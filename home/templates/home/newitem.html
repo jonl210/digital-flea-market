@@ -4,7 +4,7 @@
 <html>
 
 <head>
-  <title>Joe's • Log in</title>
+  <title>John's • Log in</title>
   <link rel="stylesheet" href="{% static 'home/project_stylesheet.css' %}" />
   <link rel="stylesheet" href="{% static 'home/newitem-style.css' %}" />
 
@@ -15,60 +15,61 @@
   <div class="container">
     <h1>New Item</h1>
     <div class="content">
-      <form action="#">
+      <form action="newitemadd" method="POST">        
+        {% csrf_token %} <!-- Protects against cross site request forgeries https://docs.djangoproject.com/en/3.1/ref/csrf/ -->
         <div>
           <div class="row">
             <div class="column">
               <span class="label">Item ID</span>
-              <input type="text" required>
+              <input type="text" name="itemID" required>
             </div>
             <div class="column">
               <span class="label">Item Category ID</span>
-              <input type="text" required>
+              <input type="text" name ="itemCatID" required>
             </div>
           </div>
           <!--  -->
           <div class="row">
             <div class="column">
               <span class="label">Brand ID</span>
-              <input type="text" required>
+              <input type="text" name="brandID" required>
             </div>
             <div class="column">
               <span class="label">Supplier ID</span>
-              <input type="text" required>
+              <input type="text" name="supplierID" required>
             </div>
           </div>
           <!--  -->
           <div class="row">
             <div class="column">
               <span class="label">Item Name</span>
-              <input type="text" required>
+              <input type="text" name="itemName" required>
             </div>
             <div class="column">
               <span class="label">Total on Hand</span>
-              <input type="text" required>
+              <input type="text" name="totalOnHand" required>
             </div>
           </div>
           <!--  -->
           <div class="row">
             <div class="column">
               <span class="label">Item Price</span>
-              <input type="text" required>
+              <input type="text" name="itemPrice" required>
             </div>
             <div class="column">
               <span class="label">Re-order Min</span>
-              <input type="text" required>
+              <input type="text" name="reorderMin" required>
             </div>
             <div class="column">
               <span class="label">Max</span>
-              <input type="text" required>
+              <input type="text" name="max" required>
             </div>
           </div>
           <!--  -->
           <div class="row">
             <div class="column">
               <span class="label">Item Description</span>
-              <textarea id="item-description"></textarea>
+              <textarea id="item-description" name="itemDescription"></textarea>
             </div>
           </div>
           <!--  -->
