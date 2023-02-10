@@ -3,7 +3,8 @@ from .models import Items,ItemSupplier
 import datetime
 
 def index(request):
-    return render(request, "home/index.html")
+    item_list = Items.objects.all()
+    return render(request, "home/index.html",{'item_list':item_list})
 
 def login_page(request):
     return render(request, "home/login.html")
