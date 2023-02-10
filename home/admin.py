@@ -14,3 +14,4 @@ admin.site.register(Transaction)
 
 class Customer(admin.ModelAdmin):
     exclude = ('CardNum')
+

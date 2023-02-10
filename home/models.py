@@ -42,12 +42,13 @@ class Items(models.Model):
     ItemMarkup = models.FloatField()
     SalePrice = models.FloatField()
     PriceToOrder = models.FloatField()
-    InStock = models.BooleanField()
+    InStock = models.IntegerField()
 
     def __str__(self):
         return self.ItemName
 
-#transactions table, connects employee, customer, and items
+
+
 class Transaction(models.Model):
     EmployeeID = models.ForeignKey(Employee, on_delete=models.CASCADE)
     ItemID = models.ForeignKey(Items, on_delete=models.CASCADE)
