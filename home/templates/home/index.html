@@ -15,71 +15,18 @@
 <body>
   {% include "home/navbar.html" %}
   <div class="all-products">
-    <div class="product">
-      <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
-      <div class="product-info">
-        <h4 class="product-title ">Product Name
-        </h4>
-        <p class="product-price ">$12.99</p>
-        <p class="product-desc ">Product Description</p>
-        <a class="product-btn" href="#">Add to Cart</a>
-      </div>
-    </div>
+    {% for item in item_list %}
+      <div class="product">
+       <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
+       <div class="product-info">
+         <h4 class="product-title ">{{ item.ItemName }}</h4>
+         <p class="product-price ">Price: {{ item.SalePrice }}</p>
+         <a class="product-desc " href="">Veiw More</a>
+         <a class="product-btn" href="#">Add to Cart</a>
+       </div>
+     </div>
+    {% endfor %}
     <!--  -->
-    <div class="product">
-      <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
-      <div class="product-info">
-        <h4 class="product-title ">Product Name
-        </h4>
-        <p class="product-price ">$12.99</p>
-        <p class="product-desc ">Product Description</p>
-        <a class="product-btn" href="#">Add to Cart</a>
-      </div>
-    </div>
-    <!--  -->
-    <div class="product">
-      <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
-      <div class="product-info">
-        <h4 class="product-title ">Product Name
-        </h4>
-        <p class="product-price ">$12.99</p>
-        <p class="product-desc ">Product Description</p>
-        <a class="product-btn" href="#">Add to Cart</a>
-      </div>
-    </div>
-    <!--  -->
-    <div class="product">
-      <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
-      <div class="product-info">
-        <h4 class="product-title ">Product Name
-        </h4>
-        <p class="product-price ">$12.99</p>
-        <p class="product-desc ">Product Description</p>
-        <a class="product-btn" href="#">Add to Cart</a>
-      </div>
-    </div>
-    <!--  -->
-    <div class="product">
-      <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
-      <div class="product-info">
-        <h4 class="product-title ">Product Name
-        </h4>
-        <p class="product-price ">$12.99</p>
-        <p class="product-desc ">Product Description</p>
-        <a class="product-btn" href="#">Add to Cart</a>
-      </div>
-    </div>
-    <!--  -->
-    <div class="product">
-      <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
-      <div class="product-info">
-        <h4 class="product-title ">Product Name
-        </h4>
-        <p class="product-price ">$12.99</p>
-        <p class="product-desc ">Product Description</p>
-        <a class="product-btn" href="#">Add to Cart</a>
-      </div>
-    </div>
   </div>
 </body>
 
