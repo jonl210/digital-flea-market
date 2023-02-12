@@ -44,3 +44,7 @@ def addNewItem(request):
     else:
         # Render newitem page
         return render(request, "home/newitem.html")
+
+def item(request, id):
+    item = Items.objects.get(id=id)
+    return render(request, "home/itempage.html", {'item': item})

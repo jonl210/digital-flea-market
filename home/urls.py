@@ -10,5 +10,6 @@ urlpatterns = [
     path('shopcart', views.shopcart_page, name='shopcart'),
     path('login/admin', views.admin_login, name='admin-login'),
     path('newitem', views.newitem, name='newitem'),
-    path('newitemadd', views.addNewItem, name='newitemadd')
+    path('newitemadd', views.addNewItem, name='newitemadd'),
+    path('item/<id>', views.item, name='item'),
 ]

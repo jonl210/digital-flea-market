@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,12 +8,12 @@
   </head>
   <body>
     {% include "home/navbar.html" %}
-        <main>
+    <main>
       <img src="{{ item.image_url }}" alt="{{ item.name }}" />
-      <h1>{{ item.name }}</h1>
-      <p>{{ item.description }}</p>
-      <h2>Price: ${{ item.price }}</h2>
-      <p>Quantity: {{ item.quantity }}</p>
+      <h1>{{ item.ItemName }}</h1>
+      <p>{{ item.ItemDescription }}</p>
+      <h2>Price: ${{ item.SalePrice }}</h2>
+      <p>Quantity: {{ item.inStock }}</p>
     </main>
   </body>
 </html>
