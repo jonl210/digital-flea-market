@@ -45,6 +45,7 @@ def addNewItem(request):
         # Render newitem page
         return render(request, "home/newitem.html")
 
+# single item view
 def item(request, id):
     item = Items.objects.get(id=id)
     return render(request, "home/itempage.html", {'item': item})
