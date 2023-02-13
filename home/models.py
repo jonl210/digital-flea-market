@@ -6,6 +6,7 @@ from django.db import models
 class Employee(models.Model):
     EmployeeFirst = models.CharField(max_length=30)
     EmployeeLast = models.CharField(max_length=30)
+    Password = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.EmployeeLast
@@ -20,6 +21,7 @@ class Customer(models.Model):
     Zip = models.IntegerField()
     email = models.CharField(max_length=100)
     PhoneNum = models.IntegerField()
+    Password = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.LastName
@@ -47,8 +49,16 @@ class Items(models.Model):
     def __str__(self):
         return self.ItemName
 
+#images for website
+class Image(models.Model):
+    title = models.CharField(max_length=200)
+    img = models.ImageField(upload_to='images/')
+    ItemsID = models.ForeignKey(Items, on_delete=models.CASCADE, null=True)
 
+    class Meta:
+        db_table = 'Image Upload'
 
+#transactions
 class Transaction(models.Model):
     EmployeeID = models.ForeignKey(Employee, on_delete=models.CASCADE)
     ItemID = models.ForeignKey(Items, on_delete=models.CASCADE)

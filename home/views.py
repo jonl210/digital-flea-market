@@ -1,6 +1,31 @@
 from django.shortcuts import render
-from .models import Items,ItemSupplier
+from django.http import HttpResponse
+from .forms import ImageFieldForm
+from .models import Items,ItemSupplier, Image
 import datetime
+
+def home_view(request): 
+    context = {}
+    if request.method == "POST": 
+        form = ImageFieldForm(request.POST, request.FILES) 
+        if form.is_valid(): 
+            name = form.cleaned_data.get("name") 
+            img = form.cleaned_data.get("image_field") 
+            obj = Image.objects.create( 
+                                 title = name,  
+                                 img = img 
+                                 ) 
+            obj.save() 
+            print(obj)
+            #to be redirected to employee homepage
+            return render(request, 'home/success.html') 
+    else: 
+        form = ImageFieldForm()
+        context['form'] = form
+        return render( request, "home/image_upload.html", context) 
+
+def success(request): 
+    return HttpResponse('home/success.html') 
 
 def index(request):
     item_list = Items.objects.all()

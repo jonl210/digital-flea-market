@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Success! Image uploaded.</title>
+    <link rel="stylesheet" href="{% static 'home/imagepage-style.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/navbar-style.css' %}" />
+  </head>
+  <body>
+    
+    <main>
+        <p><a href="{% url 'home:image_upload' %}">Back</a></p>
+    </main>
+  </body>
+</html>

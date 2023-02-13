@@ -1,0 +1,22 @@
+{% load static %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'home/project_stylesheet.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/navbar-style.css' %}" />
+<title>Django File Upload</title>
+</head>
+<style>
+    form{text-align-last: center;}
+</style>
+<body>
+    {% include "home/navbar.html" %}
+<form method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %} 
+    {{ form.as_p }} 
+    <input type="submit" value="Submit"> 
+    
+</form> 
+
+</body>
+</html>
