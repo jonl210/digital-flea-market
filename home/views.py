@@ -24,10 +24,9 @@ def newitem(request):
 def addNewItem(request):
     if request.method=="POST":
         # Verify there are inputs for all expected fields in the form
-        if request.POST.get("itemID") and request.POST.get("itemCatID") and request.POST.get("brandID") and request.POST.get("supplierID") \
-            and request.POST.get("itemName") and request.POST.get("totalOnHand") and request.POST.get("itemPrice") and request.POST.get("reorderMin") \
-            and request.POST.get("max") and request.POST.get("itemDescription"):
-
+        if request.POST.get("itemID") and request.POST.get("supplierID") and request.POST.get("itemName") and request.POST.get("inStock") \
+            and request.POST.get("itemPrice") and request.POST.get("itemMarkup") and request.POST.get("priceToOrder") and request.POST.get("itemDescription"):
+            
             # Creates item on home_itemsupplier table
             # Hard coded values because there are no inputs for these fields in the form yet
             supplier = ItemSupplier(SupplierName="Test Name Here", ValueSuppliedToDate=0.0, FirstItemDate=datetime.datetime.now(), LastItemDate=datetime.datetime.now()) 
@@ -35,7 +34,8 @@ def addNewItem(request):
 
             # Creates item on home_items table
             newItem = Items(ItemSupplierID=supplier, ItemDiscription=request.POST.get("itemDescription"), \
-                ItemName=request.POST.get("itemName"), ItemMarkup=0, SalePrice = request.POST.get("itemPrice"), PriceToOrder=0, InStock=True)
+                ItemName=request.POST.get("itemName"), ItemMarkup=request.POST.get("itemMarkup"), SalePrice = request.POST.get("itemPrice"), \
+                PriceToOrder=request.POST.get("priceToOrder"), InStock=request.POST.get("inStock"))
             newItem.save()
 
             # Render newitem page
