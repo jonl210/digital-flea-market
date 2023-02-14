@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Items,ItemSupplier
+from .models import Items,ItemSupplier, Customer
 import datetime
 
 def index(request):
@@ -10,6 +10,18 @@ def login_page(request):
     return render(request, "home/login.html")
     
 def signup_page(request):
+    if request.method=="POST":
+        # Verify there are inputs for all expected fields in the form
+        if request.POST.get("firstName") and request.POST.get("lastName") and request.POST.get("phoneNum") \
+            and request.POST.get("streetAddress") and request.POST.get("city") and request.POST.get("state") \
+            and request.POST.get("zipCode") and request.POST.get("email") and request.POST.get("password") \
+            and request.POST.get("confirmPassword"):
+
+            # Creates new customer on home_customer table
+            newCustomer = Customer(FirstName=request.POST.get("firstName"), LastName=request.POST.get("lastName"), City=request.POST.get("city"),
+            State=request.POST.get("state"), Zip=request.POST.get("zipCode"), email=request.POST.get("email"), PhoneNum=request.POST.get("phoneNum"))
+            newCustomer.save()
+
     return render(request, "home/signup.html")
     
 def shopcart_page(request):
@@ -28,7 +40,6 @@ def addNewItem(request):
             and request.POST.get("itemPrice") and request.POST.get("itemMarkup") and request.POST.get("priceToOrder") and request.POST.get("itemDescription"):
             
             # Creates item on home_itemsupplier table
-            # Hard coded values because there are no inputs for these fields in the form yet
             supplier = ItemSupplier(SupplierName="Test Name Here", ValueSuppliedToDate=0.0, FirstItemDate=datetime.datetime.now(), LastItemDate=datetime.datetime.now()) 
             supplier.save()
 
