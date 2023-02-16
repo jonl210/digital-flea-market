@@ -1,12 +1,12 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
 
 from . import views
 
 app_name = 'home'
 urlpatterns = [
     path('', views.index, name='index')                         ,
-    path('login', views.login_page, name='login')               ,
-    path('signup', views.signup_page, name='signup')            ,
+    path('signup', views.register, name='signup')            ,
     path('shopcart', views.shopcart_page, name='shopcart')      ,
     path('login/admin', views.admin_login, name='admin-login')  ,
     path('newitem', views.newitem, name='newitem')              ,
@@ -14,4 +14,6 @@ urlpatterns = [
     path('item/<id>', views.item, name='item')                  ,
     path('uploadimage', views.home_view, name='image_upload')   ,
     path('success', views.success, name='success')              ,
+    path('login', auth_views.LoginView.as_view(template_name='home/login.html'), name='login'),
+    path('logout', auth_views.LogoutView.as_view(template_name='home/index.html'), name='logout')
 ]

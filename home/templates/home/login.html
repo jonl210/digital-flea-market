@@ -10,10 +10,9 @@
   {% include "home/navbar.html" %}
   <main>
     <h1>Customer Log In</h1>
-    <form action="#" method="post">
+    <form method="post">
       {% csrf_token %}
-      <input class="signup-input" type="text" placeholder="Email Address" />
-      <input class="signup-input" type="password" placeholder="Password" />
+      {{form}}
       <button type="submit">Log in</button>
     </form>
     <p>Need an account? <a href="{% url 'home:signup' %}">Sign up</a></p>

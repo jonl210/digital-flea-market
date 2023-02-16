@@ -1,9 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ImageFieldForm
 from .models import Items,ItemSupplier, Image
 from .models import Items,ItemSupplier, Customer
 import datetime
+from django.contrib.auth.forms import UserCreationForm 
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            Customer.objects.create(user=new_user)
+            return redirect('home:login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'home/signup.html', {'form': form})
+
+def login_page(request):
+    return render(request, "home/login.html")
 
 def home_view(request): 
     context = {}
@@ -31,24 +46,6 @@ def success(request):
 def index(request):
     item_list = Items.objects.all()
     return render(request, "home/index.html",{'item_list':item_list})
-
-def login_page(request):
-    return render(request, "home/login.html")
-    
-def signup_page(request):
-    if request.method=="POST":
-        # Verify there are inputs for all expected fields in the form
-        if request.POST.get("firstName") and request.POST.get("lastName") and request.POST.get("phoneNum") \
-            and request.POST.get("streetAddress") and request.POST.get("city") and request.POST.get("state") \
-            and request.POST.get("zipCode") and request.POST.get("email") and request.POST.get("password") \
-            and request.POST.get("confirmPassword"):
-
-            # Creates new customer on home_customer table
-            newCustomer = Customer(FirstName=request.POST.get("firstName"), LastName=request.POST.get("lastName"), City=request.POST.get("city"),
-            State=request.POST.get("state"), Zip=request.POST.get("zipCode"), email=request.POST.get("email"), PhoneNum=request.POST.get("phoneNum"))
-            newCustomer.save()
-
-    return render(request, "home/signup.html")
     
 def shopcart_page(request):
     return render(request, "home/shopcart.html")
