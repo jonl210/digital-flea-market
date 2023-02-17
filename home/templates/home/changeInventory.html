@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Joe's • Log in</title>
+  <link rel="stylesheet" href="{% static 'home/project_stylesheet.css' %}" />
+  <link rel="stylesheet" href="{% static 'home/newitem-style.css' %}" />
+
+</head>
+
+<body>
+  {% include "home/navbar.html" %}
+  <div class="container">
+    <table>
+        <tr>
+            <th>Index</th>
+            <th>Item Name</th>
+            <th>Item Description</th>
+            <th>Price</th>
+            <th>In-Stock</th>
+        </tr>
+    {% for item in Inventory %}
+    <form>
+        <tr>
+        <th>{{ item.id }}</th>
+        <th><input type="text" value="{{ item.ItemName }}"></th>
+        <th><input type="text" value="{{ item.ItemDiscription }}"></th>
+        <th>$<input type="text" value="{{ item.SalePrice }}"></th>
+        <th>
+            <select>
+                <option value='{{ item.InStock }}'>{{ item.InStock }}</option>
+                {% if item.InStock == True %}
+                <option value='False'>False</option>
+                {% else %}
+                <option value='True'>True</option>
+                {% endif %}
+            </select>
+        </th>
+        </tr>
+    </form>
+    
+    {% endfor %}
+  </div>
+</body>
+
+</html>

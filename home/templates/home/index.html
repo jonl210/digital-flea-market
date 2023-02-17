@@ -14,12 +14,7 @@
 
 <body>
   {% include "home/navbar.html" %}
-  {% if user.is_authenticated %}
-    <a href="{% url 'home:logout' %}">Log out</a>
-    <p>Logged in as {{ user.username }}</p>
-    {% else %}
 
-    {% endif %}
   <div class="all-products">
     {% for item in item_list %}
       <div class="product">

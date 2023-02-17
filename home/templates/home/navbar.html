@@ -31,7 +31,11 @@
               ><span class="material-symbols-outlined"> shopping_cart </span></a
             >
           </li>
-          <li><a class="login-btn" href="{% url 'home:login' %}">Log in</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="login-btn" href="{% url 'logout' %}">Log out</a><li>
+          {% else %}
+          <li><a class="login-btn" href="{% url 'login' %}">Log in</a><li>
+          {% endif %}
           <li><a class="login-btn" href="{% url 'home:signup' %}">Sign up</a></li>
         </ul>
       </nav>
