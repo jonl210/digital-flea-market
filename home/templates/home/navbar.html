@@ -20,10 +20,32 @@
       <nav>
         <h1>Joe's</h1>
         <ul>
+          {% if user.is_superuser %}
+            <li>
+              <a href="{% url 'home:index' %}">Home</a>
+            </li>
+            <li><a href="{% url 'home:newitem' %}">New Item</a></li>
+            <li><a href="{% url 'home:image_upload' %}">Image Page</a></li>
+            <li><a href="#">{{ user.username }}</a></li>
+            <li><a class="login-btn" href="{% url 'home:logout' %}">Log out</a>
+
+          {% elif user.is_authenticated %}
+            <li>
+              <a href="{% url 'home:index' %}">Home</a>
+            </li>
+            <li><a href="#">Order History</a></li>
+            <li>
+              <a href="{% url 'home:shopcart' %}"
+                ><span class="material-symbols-outlined"> shopping_cart </span></a
+              >
+            </li>
+            <li><a href="#">{{ user.username }}</a></li>
+            <p>  </p></li>
+            <li><a class="login-btn" href="{% url 'home:logout' %}">Log out</a>
+          {% else %} 
           <li>
             <a href="{% url 'home:index' %}">Home</a>
           </li>
-          <li><a href="{% url 'home:newitem' %}">New Item</a></li>
           <li><a href="#">Category 2</a></li>
           <li><a href="#">Category 3</a></li>
           <li>
@@ -33,6 +55,7 @@
           </li>
           <li><a class="login-btn" href="{% url 'home:login' %}">Log in</a></li>
           <li><a class="login-btn" href="{% url 'home:signup' %}">Sign up</a></li>
+          {% endif %}
         </ul>
       </nav>
     </header>
