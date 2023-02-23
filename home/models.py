@@ -43,7 +43,7 @@ class Items(models.Model):
     SalePrice = models.FloatField()
     PriceToOrder = models.FloatField()
     InStock = models.IntegerField()
-    #ProductType = models.CharField(max_length=50, choices=ProdChoices, null=True)
+    ProductType = models.CharField(max_length=50, choices=ProdChoices, null=True)
 
 #images for website
 class Image(models.Model):
