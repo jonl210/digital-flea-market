@@ -16,17 +16,7 @@
     <div class="content">
       <form action="newitemadd" method="POST">        
         {% csrf_token %} <!-- Protects against cross site request forgeries https://docs.djangoproject.com/en/3.1/ref/csrf/ -->
-        <div>
-          <div class="row">
-            <div class="column">
-              <span class="label">Item ID</span>
-              <input type="text" name="itemID" required>
-            </div>
-            <div class="column">
-              <span class="label">Supplier ID</span>
-              <input type="text" name="supplierID" required>
-            </div>
-          </div>          
+        <div>         
           <!--  -->
           <div class="row">
             <div class="column">
@@ -34,29 +24,31 @@
               <input type="text" name="itemName" required>
             </div>
             <div class="column">
-              <span class="label">In Stock</span>
-              <input type="text" name="inStock" required>
+              <span class="label">Sale Price</span>
+              <input  type="text" name="salePrice" required>
             </div>
           </div>
           <!--  -->
-          <div class="row">
-            <div class="column">
-              <span class="label">Item Price</span>
-              <input  type="text" name="itemPrice" required>
-            </div>
+          <div class="row">           
             <div class="column">
               <span class="label">Item Markup</span>
               <input  type="text" name="itemMarkup" required>
             </div>
-          </div>
-          <!--  -->
-          <div class="row"> 
             <div class="column">
               <span class="label">Price to Order</span>
               <input type="text" name="priceToOrder" required>
-            </div>    
+            </div> 
+          </div>
+          <!--  -->
+          <div class="row">               
             <div class="column">
-            </div>      
+              <span class="label">Supplier ID</span>
+              <input type="text" name="supplierID" required>
+            </div>
+            <div class="column">
+              <span class="label">In Stock</span>
+              <input type="text" name="inStock" required>
+            </div>     
           </div>
           <!--  -->
           <div class="row">

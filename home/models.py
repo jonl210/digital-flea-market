@@ -10,6 +10,7 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
 
 class ItemSupplier(models.Model):
+    ID = models.IntegerField(primary_key=True)
     SupplierName = models.CharField(max_length=100)
     ValueSuppliedToDate = models.FloatField()
     FirstItemDate = models.DateField()

@@ -60,17 +60,18 @@ def newitem(request):
 def addNewItem(request):
     if request.method=="POST":
         # Verify there are inputs for all expected fields in the form
-        if request.POST.get("itemID") and request.POST.get("supplierID") and request.POST.get("itemName") and request.POST.get("inStock") \
-            and request.POST.get("itemPrice") and request.POST.get("itemMarkup") and request.POST.get("priceToOrder") and request.POST.get("itemDescription"):
-            
-            # Creates item on home_itemsupplier table
-            supplier = ItemSupplier(SupplierName="Test Name Here", ValueSuppliedToDate=0.0, FirstItemDate=datetime.datetime.now(), LastItemDate=datetime.datetime.now()) 
-            supplier.save()
+        if request.POST.get("itemName") and request.POST.get("salePrice") and request.POST.get("itemMarkup") and request.POST.get("priceToOrder") \
+        and request.POST.get("itemDescription") and request.POST.get("supplierID") and request.POST.get("inStock"):           
 
+            # Creates item on home_itemsupplier table
+            supplier = ItemSupplier(ID=request.POST.get("supplierID"),SupplierName="Test Name Here2", ValueSuppliedToDate=0.0, FirstItemDate=datetime.datetime.now(), LastItemDate=datetime.datetime.now()) 
+            supplier.save()
+            
             # Creates item on home_items table
-            newItem = Items(ItemSupplierID=supplier, ItemDiscription=request.POST.get("itemDescription"), \
-                ItemName=request.POST.get("itemName"), ItemMarkup=request.POST.get("itemMarkup"), SalePrice = request.POST.get("itemPrice"), \
-                PriceToOrder=request.POST.get("priceToOrder"), InStock=request.POST.get("inStock"))
+            newItem = Items(ItemSupplierID=supplier,ItemDiscription=request.POST.get("itemDescription"), ItemName=request.POST.get("itemName"), \
+                    ItemMarkup=request.POST.get("itemMarkup"), SalePrice = request.POST.get("salePrice"), PriceToOrder=request.POST.get("priceToOrder"), \
+                    InStock=request.POST.get("inStock")) 
+
             newItem.save()
 
             # Render newitem page
