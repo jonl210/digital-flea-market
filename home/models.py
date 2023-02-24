@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+
 
 class ItemSupplier(models.Model):
     ID = models.IntegerField(primary_key=True)
@@ -45,6 +44,11 @@ class Items(models.Model):
     PriceToOrder = models.FloatField()
     InStock = models.IntegerField()
     ProductType = models.CharField(max_length=50, choices=ProdChoices, null=True)
+
+# Needs to be below Items declaration for many to many field to work.
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    cart = models.ManyToManyField(Items, default=None)
 
 #images for website
 class Image(models.Model):
