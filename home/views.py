@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ImageFieldForm
-from .models import Items,ItemSupplier, Image
-from .models import Items,ItemSupplier, Customer
+from .models import Items,ItemSupplier, Image, Customer
 import datetime
 from django.contrib.auth.forms import UserCreationForm 
 
@@ -12,13 +11,14 @@ def register(request):
         if form.is_valid():
             new_user = form.save()
             Customer.objects.create(user=new_user)
-            return redirect('home:login')
+            return redirect('login')
     else:
         form = UserCreationForm()
     return render(request, 'home/signup.html', {'form': form})
 
 def login_page(request):
-    return render(request, "home/login.html")
+    return render(request, "login.html")
+    
 
 def home_view(request): 
     context = {}
@@ -45,7 +45,8 @@ def success(request):
 
 def index(request):
     item_list = Items.objects.all()
-    return render(request, "home/index.html",{'item_list':item_list})
+    context = {'item_list' : item_list}
+    return render(request, "home/index.html", context)
     
 def shopcart_page(request):
     return render(request, "home/shopcart.html")

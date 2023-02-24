@@ -1,11 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Employee(models.Model):
-    EmployeeFirst = models.CharField(max_length=30)
-    EmployeeLast = models.CharField(max_length=30)
-    Password = models.CharField(max_length=200, null=True)
-
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
 
@@ -15,6 +10,31 @@ class ItemSupplier(models.Model):
     FirstItemDate = models.DateField()
     LastItemDate = models.DateField()
 
+ProdChoices = (
+    ('Fresh Produce', 'PRODUCE'),
+    ('Canned Goods', 'CANNED'),
+    ('Frozen', 'FROZEN'),
+    ('Dairy', 'DAIRY'),
+    ('Deli', 'DELI'),
+    ('Bakery', 'BAKERY'),
+    ('Stationary', 'STATIONARY'),
+    ('Jewelry', 'JEWELERY'),
+    ('Crafts', 'CRAFTS'),
+    ('Electronics', 'ELECTRONICS'),
+    ("Men's Clothing", 'MENS'),
+    ("Women's Clothing", 'WOMENS'),
+    ('Toys', 'TOYS'),
+    ('Cleaning Supplies', 'CLEANING'),
+    ('Housewares', 'HOUSEWARES'),
+    ('Hardware', 'HARDWARE'),
+    ('Gardening', 'GARDEN'),
+    ('Cosmetics', 'COSMETICS'),
+    ('Pharmacy', 'PHARMACY'),
+    ('Sporting Goods', 'SPORTING'),
+    ('Automotive', 'AUTOMOTIVE'),
+    ('Impulse', 'IMPULSE')
+)
+
 class Items(models.Model):
     ItemSupplierID = models.ForeignKey(ItemSupplier, on_delete=models.CASCADE)
     ItemName = models.CharField(max_length=50)
@@ -23,6 +43,7 @@ class Items(models.Model):
     SalePrice = models.FloatField()
     PriceToOrder = models.FloatField()
     InStock = models.IntegerField()
+    ProductType = models.CharField(max_length=50, choices=ProdChoices, null=True)
 
 #images for website
 class Image(models.Model):
@@ -34,7 +55,6 @@ class Image(models.Model):
         db_table = 'Image Upload'
 
 class Transaction(models.Model):
-    EmployeeID = models.ForeignKey(Employee, on_delete=models.CASCADE)
     ItemID = models.ForeignKey(Items, on_delete=models.CASCADE)
     CustomerID = models.ForeignKey(Customer, on_delete=models.CASCADE)
     TransDateTime = models.DateTimeField
