@@ -59,3 +59,8 @@ footer a{
 footer a:hover {
   text-decoration: underline;
 }
+
+footer p{
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
