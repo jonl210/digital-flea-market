@@ -83,3 +83,6 @@ def addNewItem(request):
 def item(request, id):
     item = Items.objects.get(id=id)
     return render(request, "home/itempage.html", {'item': item})
+
+def checkout_page(request):
+    return render(request, "home/checkout.html")
