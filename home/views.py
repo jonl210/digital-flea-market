@@ -88,3 +88,6 @@ def item(request, id):
 
 def checkout_page(request):
     return render(request, "home/checkout.html")
+
+def about(request):
+    return render(request, "home/about.html")
