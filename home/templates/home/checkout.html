@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Joe's • Check Out</title>
+  <link rel="stylesheet" href="{% static 'home/checkout-style.css' %}" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+
+<body>
+  {% include "home/navbar.html" %}
+  <div class="container">
+    <div class="title">Product Review</div>
+
+    <div class="float-container">
+      <div class="column">
+        <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
+      </div>
+      <div class="column">
+        <h4>Product Name: Desk</h4>
+        <p>Description: Walnut Wood Desk </p>
+        <p>Price: $79.99</p>
+        <p>Count: 3</p>
+        <div class="blue">Float Column 2</div>
+      </div>
+    </div>
+
+    <div class="float-container">
+      <div class="column">
+        <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
+      </div>
+      <div class="column">
+        <h4>Product Name: Desk</h4>
+        <p>Description: Walnut Wood Desk </p>
+        <p>Price: $79.99</p>
+        <p>Count: 3</p>
+        <div class="blue">Float Column 2</div>
+      </div>
+    </div>
+  <!--  -->
+  <div class="container">
+    <div class="title">Shipping Information</div>
+    <div class="input-form">
+      <div class="double">
+        <div class="items">
+          <input type="text" class="input" placeholder="First Name">
+        </div>
+        <div class="items">
+          <input type="text" class="input" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="single">
+        <div class="items">
+          <input type="text" class="input" placeholder="Street Address">
+        </div>
+      </div>
+      <div class="triple">
+        <div class="items">
+          <input type="text" class="input" placeholder="City">
+        </div>
+        <div class="items">
+          <input type="text" class="input" placeholder="State">
+        </div>
+        <div class="items">
+          <input type="text" class="input" placeholder="Zip">
+        </div>
+      </div>
+      <!--  -->
+    <div class="title">Billing Information</div>
+    <div class="input-form">
+      <div class="double">
+        <div class="items">
+          <input type="text" class="input" placeholder="First Name">
+        </div>
+        <div class="items">
+          <input type="text" class="input" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="single">
+        <div class="items">
+          <input type="text" class="input" placeholder="Street Address">
+        </div>
+      </div>
+      <div class="triple">
+        <div class="items">
+          <input type="text" class="input" placeholder="City">
+        </div>
+        <div class="items">
+          <input type="text" class="input" placeholder="State">
+        </div>
+        <div class="items">
+          <input type="text" class="input" placeholder="Zip">
+        </div>
+      </div>
+      <!--  -->
+      <div class="title">Payment Information</div>
+      <div class="input-form">
+        <div class="single">
+          <div class="items">
+            <input type="text" class="input" maxlength="16" data-mask="0000 0000 0000 0000"
+              placeholder="Card Number (1234 1234 1234 1234)">
+          </div>
+        </div>
+        <div class="single">
+          <div class="items">
+            <input type="text" class="input" placeholder="Card Holder Name">
+          </div>
+        </div>
+        <div class="double">
+          <div class="items">
+            <input type="text" class="input" data-mask="00 / 00" placeholder="Expiration Date (MM/YY)">
+          </div>
+          <div class="items">
+            <input type="text" class="input" data-mask="0000" placeholder="CVC Code (0000)">
+          </div>
+        </div>
+        <div class="btn">proceed</div>
+      </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+.container {
+  font-family: "Nunito", sans-serif;
+  max-width: 43.75rem;
+  height: auto;
+  margin: auto;
+  background: #fff;
+  padding: 1rem 2rem 1.5rem;
+  
+}
+.title {
+  color: #2677f5;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+.input-form {
+  margin-bottom: 1.25rem;
+}
+
+.input-form .items {
+  margin-bottom: 1.25rem;
+}
+
+.float-container {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.column {
+  flex: 1;
+}
+
+.column img {
+  height: 11rem;
+  margin: 1rem;
+  border-radius: 1rem;
+}
+.single .items .input,
+.double .items .input,
+.triple .items .input {
+  background: transparent;
+  border: 0.125rem solid #bdbdbd;
+  width: 100%;
+  padding: 0.625rem;
+  font-size: 1em;
+  color: #212121;
+  border-radius: 0.188rem;
+}
+.input-form .double {
+  display: flex;
+  justify-content: space-between;
+}
+.input-form .double .items {
+  width: 48%;
+}
+.input-form .triple {
+  display: flex;
+  justify-content: space-between;
+}
+.input-form .triple .items {
+  width: 30%;
+}
+.btn {
+  width: 50%;
+  margin: 0 auto;
+  background: #2d6fe7;
+  color: #fff;
+  font-size: 1.25em;
+  padding: 0.625rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 0.313rem;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.125rem;
+}
