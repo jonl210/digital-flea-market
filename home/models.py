@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 
 class ItemSupplier(models.Model):
-    ID = models.IntegerField(primary_key=True)
     SupplierName = models.CharField(max_length=100)
     ValueSuppliedToDate = models.FloatField()
     FirstItemDate = models.DateField()
@@ -62,10 +61,16 @@ class Image(models.Model):
 class Transaction(models.Model):
     ItemID = models.ForeignKey(Items, on_delete=models.CASCADE)
     CustomerID = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    Quantity = models.IntegerField(default=1)
+    Address = models.CharField(max_length=100, default='', blank=True)
+    Phone = models.CharField(max_length=50, default='', blank=True)
     TransDateTime = models.DateTimeField
     TransTotal = models.FloatField()
-    BuyOnline = models.BooleanField()
-    buyOffline = models.BooleanField()
+    Status = models.BooleanField(default=True)
 
+    def placeOrder(self):
+        self.save
 
-    
+    @staticmethod
+    def getCustOrders(CustomerID):
+        return Transaction.objects.filter(Customer=CustomerID).order_by('-date')
