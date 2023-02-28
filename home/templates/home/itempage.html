@@ -9,11 +9,13 @@
   <body>
     {% include "home/navbar.html" %}
     <main>
-      <img src="{{ item.image_url }}" alt="{{ item.name }}" />
-      <h1>{{ item.ItemName }}</h1>
-      <p>{{ item.ItemDescription }}</p>
-      <h2>Price: ${{ item.SalePrice }}</h2>
-      <p>Quantity: {{ item.inStock }}</p>
+      <div class="card">
+        <img src="{{ item.image_url }}" alt="{{ item.name }}" />
+        <h1>{{ item.ItemName }}</h1>
+        <p>{{ item.ItemDescription }}</p>
+        <h2>Price: ${{ item.SalePrice }}</h2>
+        <p>Quantity: {{ item.inStock }}</p>
+      </div>
     </main>
   </body>
 </html>
