@@ -43,20 +43,12 @@ class Items(models.Model):
     PriceToOrder = models.FloatField()
     InStock = models.IntegerField()
     ProductType = models.CharField(max_length=50, choices=ProdChoices, null=True)
+    itemImage = models.URLField(max_length=500, default="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg")
 
 # Needs to be below Items declaration for many to many field to work.
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     cart = models.ManyToManyField(Items, default=None)
-
-#images for website
-class Image(models.Model):
-    title = models.CharField(max_length=200)
-    img = models.ImageField(upload_to='images/')
-    ItemsID = models.ForeignKey(Items, on_delete=models.CASCADE, null=True)
-
-    class Meta:
-        db_table = 'Image Upload'
 
 class Transaction(models.Model):
     ItemID = models.ForeignKey(Items, on_delete=models.CASCADE)

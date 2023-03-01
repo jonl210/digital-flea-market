@@ -18,7 +18,7 @@
   <div class="all-products">
     {% for item in item_list %}
       <div class="product">
-       <img src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
+       <img src="{{ item.itemImage }}">
        <div class="product-info">
          <a href="item/{{ item.id }}"><h4 class="product-title ">{{ item.ItemName }}</h4></a>
          <p class="product-price ">Price: ${{ item.SalePrice }}</p>
