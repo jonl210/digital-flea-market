@@ -24,10 +24,9 @@ def success(request):
     return HttpResponse('home/success.html') 
 
 def addToCart(request, id):
-    print(Items.objects.values('ProductType').distinct())
     if request.method=="POST":
         item = Items.objects.get(id=id)
-        if request.user.is_authenticated and not user.is_superuser:
+        if request.user.is_authenticated and not request.user.is_superuser:
             #request.user.cart.add(item)
             current_user = Customer.objects.get(user=request.user)
             #print(current_user.id)
@@ -77,6 +76,15 @@ def addNewItem(request):
 
 # single item view
 def item(request, id):
+    if request.method=="POST":
+        item = Items.objects.get(id=id)
+        if request.user.is_authenticated and not request.user.is_superuser:
+            #request.user.cart.add(item)
+            current_user = Customer.objects.get(user=request.user)
+            print(current_user.cart.all())
+            #current_user.cart.add(item)
+        else:
+            return redirect('login')
     item = Items.objects.get(id=id)
     return render(request, "home/itempage.html", {'item': item})
 

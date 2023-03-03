@@ -19,7 +19,10 @@
         <p class="product-cat" style="font-size: 1rem">Category: {{ item.ProductType }}</p>
         <p class="product-price " style="font-size: 1rem">Price: ${{ item.SalePrice }}</p>
         <p class="product-quan" style="font-size: 1rem">Quantity: {{ item.InStock }}</p>
-        <a class="product-btn" href="#">Add to Cart</a>
+        <form method="POST" action="{% url 'home:item' item.id %}">
+            {% csrf_token %}
+            <button type="submit" class="product-btn">Add to Cart</button>
+        </form>
        </div>
       </div>
     </main>
