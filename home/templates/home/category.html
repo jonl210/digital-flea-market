@@ -17,8 +17,7 @@
 
 <body>
   {% include "home/navbar.html" %}
-<div><br /><br /><br />
-  <br />
+<div>
   <div class="btn-group">
     {% for item in distinct_cat %}
     <a href="{% url 'home:product_list' item.ProductType %}">
