@@ -79,3 +79,12 @@ def search(request):
     )
     context = {'search_item_list' : object_list}
     return render(request, "home/searchresults.html", context)
+
+def category(request):
+    distinct_cat = Items.objects.values('ProductType').distinct()
+    return render(request, "home/category.html", {'distinct_cat': distinct_cat})
+
+def product_list(request, product_type):
+    products = Items.objects.filter(ProductType=product_type)
+    distinct_cat = Items.objects.values('ProductType').distinct()
+    return render(request, "home/product_list.html", {'products': products, 'distinct_cat': distinct_cat})
