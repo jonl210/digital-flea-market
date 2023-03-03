@@ -22,7 +22,7 @@
         <ul>
           {% if user.is_superuser %}
             <li>
-              <a href="{% url 'home:index' %}">Home</a>
+              <a href="{% url 'home:main' %}">Home</a>
             </li>
             <li><a href="{% url 'home:newitem' %}">New Item</a></li>
             <li>
@@ -36,7 +36,7 @@
 
           {% elif user.is_authenticated %}
             <li>
-              <a href="{% url 'home:index' %}">Home</a>
+              <a href="{% url 'home:main' %}">Home</a>
             </li>
             <li><a href="#">Order History</a></li>
             <li>
@@ -55,7 +55,7 @@
             <li><a class="login-btn" href="{% url 'logout' %}">Log out</a>
           {% else %} 
           <li>
-            <a href="{% url 'home:index' %}">Home</a>
+            <a href="{% url 'home:main' %}">Home</a>
           </li>
           <li><a href="{% url 'home:category' %}">Category</a></li>
           <li>

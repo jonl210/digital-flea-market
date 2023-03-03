@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
 class ItemSupplier(models.Model):
     SupplierName = models.CharField(max_length=100)
     ValueSuppliedToDate = models.FloatField()
@@ -42,7 +41,7 @@ class Items(models.Model):
     SalePrice = models.FloatField()
     PriceToOrder = models.FloatField()
     InStock = models.IntegerField()
-    ProductType = models.CharField(max_length=50, choices=ProdChoices, null=True)
+    ProductType = models.CharField(max_length=50, choices=ProdChoices)
     itemImage = models.URLField(max_length=500, default="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg")
 
 # Needs to be below Items declaration for many to many field to work.
