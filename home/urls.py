@@ -20,5 +20,7 @@ urlpatterns = [
     #path('logout', auth_views.LogoutView.as_view(template_name='home/main.html'), name='logout'),
     path('checkout', views.checkout_page, name='checkout')      ,
     path('about',views.about, name='about')                     ,
-    path('searchresults', views.search, name='searchresults')
+    path('searchresults', views.search, name='searchresults'),
+    path('category', views.category, name='category'),
+    path('product_list/<str:product_type>/', views.product_list, name='product_list'),
 ]
