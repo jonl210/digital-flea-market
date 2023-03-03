@@ -81,8 +81,8 @@ def item(request, id):
         if request.user.is_authenticated and not request.user.is_superuser:
             #request.user.cart.add(item)
             current_user = Customer.objects.get(user=request.user)
-            print(current_user.cart.all())
-            #current_user.cart.add(item)
+            #print(current_user.cart.all())
+            current_user.cart.add(item)
         else:
             return redirect('login')
     item = Items.objects.get(id=id)
