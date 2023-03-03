@@ -3,18 +3,24 @@
 <html>
   <head>
     <title>Item Description Page</title>
-    <link rel="stylesheet" href="{% static 'home/imagepage-style.css' %}" />
-    <link rel="stylesheet" href="{% static 'home/navbar-style.css' %}" />
+    <link rel="stylesheet" href="{% static 'home/project_stylesheet.css' %}"/>
+    <link rel="stylesheet" href="{% static 'home/indexstyle.css' %}" />
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   </head>
   <body>
     {% include "home/navbar.html" %}
-    <main>
-      <div class="card">
-        <img src="{{ item.image_url }}" alt="{{ item.name }}" />
-        <h1>{{ item.ItemName }}</h1>
-        <p>{{ item.ItemDescription }}</p>
-        <h2>Price: ${{ item.SalePrice }}</h2>
-        <p>Quantity: {{ item.inStock }}</p>
+    <br /><br />
+    <main>  
+      <h1 style="font-size: 28px;">{{ item.ItemName }}</h1>
+      <div class="product" style="margin: auto;">
+       <img src="{{ item.itemImage }}">
+       <div class="product-info">
+        <p class="product-desc " style="font-size: 1rem">Description: {{ item.ItemDiscription }}</p>
+        <p class="product-cat" style="font-size: 1rem">Category: {{ item.ProductType }}</p>
+        <p class="product-price " style="font-size: 1rem">Price: ${{ item.SalePrice }}</p>
+        <p class="product-quan" style="font-size: 1rem">Quantity: {{ item.InStock }}</p>
+        <a class="product-btn" href="#">Add to Cart</a>
+       </div>
       </div>
     </main>
   </body>

@@ -25,7 +25,9 @@
 
 .product .product-title,
 .product .product-price,
-.product .product-desc{
+.product .product-desc,
+.product .product-quan,
+.product .product-cat{
   text-align: left;
   font-size: 1.125rem;
 }
