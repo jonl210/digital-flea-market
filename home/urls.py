@@ -16,5 +16,6 @@ urlpatterns = [
     path('login', auth_views.LoginView.as_view(template_name='home/login.html'), name='login'),
     path('logout', auth_views.LogoutView.as_view(template_name='home/index.html'), name='logout'),
     path('checkout', views.checkout_page, name='checkout')      ,
-    path('about',views.about, name='about')
+    path('about',views.about, name='about')                     ,
+    path('searchresults', views.search, name='searchresults')
 ]

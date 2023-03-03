@@ -41,6 +41,21 @@ nav ul li a {
   font-weight: bold;
 }
 
+.submit-btn {
+  color: #fff;
+  background-color: gray;
+  padding: 0.5rem 0.6rem 0.5rem 0.6rem;
+  border-radius: 0.4rem;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+}
+
+.search-bar {
+  width: 220px;
+  height: 30px;
+  font-family: "Nunito", sans-serif;
+}
+
 footer {
   position: fixed;
   padding: 10px 10px 0px 10px;

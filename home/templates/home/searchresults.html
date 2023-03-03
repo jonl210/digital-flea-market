@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Joe's Store</title>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="{% static 'home/project_stylesheet.css' %}"/>
+  <link rel="stylesheet" href="{% static 'home/indexstyle.css' %}" />
+  <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+
+<body>
+  {% include "home/navbar.html" %}
+<div><br /><br /><br />
+  <h1 style="font-size: 28px;">Search Results</h1>
+  <br />
+  {% for item in search_item_list %}
+  <div class="product" style="margin: auto;">
+   <img src="{{ item.itemImage }}">
+   <div class="product-info">
+     <a href="item/{{ item.id }}"><h4 class="product-title ">{{ item.ItemName }}</h4></a>
+     <p class="product-price ">Price: ${{ item.SalePrice }}</p>
+     <a class="product-desc " href="#">View Description</a>
+     <a class="product-btn" href="#">Add to Cart</a>
+   </div>
+ </div>
+{% endfor %}
+</div>
+</body>
+</html>

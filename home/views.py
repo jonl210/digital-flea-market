@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from .forms import ImageFieldForm
 from .models import Items,ItemSupplier,Customer
 import datetime
-from django.contrib.auth.forms import UserCreationForm 
+from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Q
 
 def register(request):
     if request.method == 'POST':
@@ -70,3 +71,11 @@ def checkout_page(request):
 
 def about(request):
     return render(request, "home/about.html")
+
+def search(request):
+    query = request.GET.get("q")
+    object_list = Items.objects.filter(
+       Q(ItemName__icontains=query) | Q(ProductType__icontains=query)
+    )
+    context = {'search_item_list' : object_list}
+    return render(request, "home/searchresults.html", context)
