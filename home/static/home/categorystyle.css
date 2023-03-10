@@ -16,3 +16,8 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+.category-button:hover {
+  background-color: cornflowerblue;
+  color: white;
+}
