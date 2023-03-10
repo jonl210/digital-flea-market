@@ -32,6 +32,10 @@
   font-size: 1.125rem;
 }
 
+a:visited .product-title, .product-desc {
+  color: #2677f5;
+} 
+
 .product-info h4{
     font-weight: bold;
 }
@@ -55,12 +59,23 @@
   display: inline-block;
   text-decoration: none;
   color: #2677f5;
-  padding: 1.2rem 3rem;
+  padding: 0.5rem 2rem;
   border: solid #2677f5 0.125rem;
   border-radius: 1rem;
   margin-top: 1rem;
   font-size: 1rem;
   transition: all 0.2s;
-  width: 50%;
+  width: 70%;
   font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.product-btn:hover {
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.product:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
