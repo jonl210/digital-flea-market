@@ -22,7 +22,7 @@
    <img src="{{ item.itemImage }}">
    <div class="product-info">
      <a href="item/{{ item.id }}"><h4 class="product-title ">{{ item.ItemName }}</h4></a>
-     <p class="product-price ">Price: ${{ item.SalePrice }}</p>
+     <p class="product-price ">Price: ${{ item.SalePrice|floatformat:2 }}</p>
      <a class="product-desc " href="#">{{item.ProductType}}</a>
      <a class="product-btn" href="#">Add to Cart</a>
    </div>

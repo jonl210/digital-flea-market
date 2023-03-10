@@ -17,7 +17,7 @@
        <div class="product-info">
         <p class="product-desc " style="font-size: 1rem">Description: {{ item.ItemDiscription }}</p>
         <p class="product-cat" style="font-size: 1rem">Category: {{ item.ProductType }}</p>
-        <p class="product-price " style="font-size: 1rem">Price: ${{ item.SalePrice }}</p>
+        <p class="product-price " style="font-size: 1rem">Price: ${{ item.SalePrice|floatformat:2 }}</p>
         <p class="product-quan" style="font-size: 1rem">Quantity: {{ item.InStock }}</p>
         <form method="POST" action="{% url 'home:item' item.id %}">
             {% csrf_token %}
