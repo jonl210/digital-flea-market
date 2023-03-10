@@ -18,12 +18,13 @@
   <body>
     <header>
       <nav>
-        <h1>411 Marketplace</h1>
+        <h1>The 411 Marketplace</h1>
         <ul>
           {% if user.is_superuser %}
             <li>
               <a href="{% url 'home:main' %}">Home</a>
             </li>
+            <li><a href="{% url 'home:category' %}">Category</a></li>
             <li><a href="{% url 'home:newitem' %}">New Item</a></li>
             <li>
               <form action="{% url 'home:searchresults' %}" method="get">
@@ -38,6 +39,7 @@
             <li>
               <a href="{% url 'home:main' %}">Home</a>
             </li>
+            <li><a href="{% url 'home:category' %}">Category</a></li>
             <li><a href="#">Order History</a></li>
             <li>
               <a href="{% url 'home:shopcart' %}"

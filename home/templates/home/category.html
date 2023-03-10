@@ -10,7 +10,6 @@
       rel="stylesheet"
     />
   <link rel="stylesheet" href="{% static 'home/project_stylesheet.css' %}"/>
-  <link rel="stylesheet" href="{% static 'home/index_style.css' %}" />
   <link rel="stylesheet" href="{% static 'home/categorystyle.css' %}" />
   <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
@@ -21,7 +20,7 @@
   <div class="btn-group">
     {% for item in distinct_cat %}
     <a href="{% url 'home:product_list' item.ProductType %}">
-      <button>{{item.ProductType}}</button>
+      <button class="category-button">{{item.ProductType}}</button>
     </a>
   {% endfor %}
   
